@@ -14,7 +14,7 @@ To run the homework (assuming that docker is already installed and you are in th
 * Run ```docker run -v local-data-folder-path:/home/data name:tag``` to verify if code runs.
 * For the purpose of this assigment, i have assumed the name as gadiravi and tag as latest. In order to save the image, we used the following commands:
 
-```docker save -o gadiravi-latest.tar gadiravi:latest```
+```docker save -o gadiravi-latest.tar gadiraju:latest```
 
 The saved tar file has been uploaded as requested. 
 * To load the saved image, use ```docker load -i gadiravi-latest.tar``` and use the run command listed above to get the same result. 

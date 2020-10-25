@@ -1,14 +1,16 @@
-
+//WordCount.java CS6065 Deepthi Gadiraju
+//This program calculates the number of words in each text file in a directory,
+//Calculates the total number of words in all files
+//Gives the file name with maximum number of words
+//gives the IP address of the current machine being used
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Scanner;
-//import java.io.FileInputStream;
 import java.io.File;
 import java.io.FilenameFilter;
-//import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 
@@ -19,9 +21,9 @@ public class WordCount {
 	}
 	
 	public static void main(String[] args) throws Exception{
-		
+		// Reads the files from a directory
 		File directory = new File("/home/data");
-
+//Takes only the text files
 		File allFiles[]=directory.listFiles(new FilenameFilter()
 				{
 
@@ -32,10 +34,10 @@ public class WordCount {
 					}
 			
 				});
-		
+		// using hashmap to map file with the corresponding count
 		HashMap<File,Integer> MaximumElements = new HashMap<File,Integer>();
 		Integer max=0;
-		
+		//to write the result into result.txt file
 		PrintWriter result= new PrintWriter("/home/output/result.txt");
 		
 		// To list all files in the directory
@@ -63,8 +65,9 @@ public class WordCount {
 					count++;
 				}	
 		
-				
+				//Places all the files and corresponding count in the hashmap
 				MaximumElements.put(file, count);
+				// calculates the maximum count
 				max=Collections.max(MaximumElements.values());
 				
 				
@@ -97,7 +100,8 @@ public class WordCount {
 		//System.out.println("This machine's IP address is: "+myIP);
 		result.println("This machine's IP address is:"+myIP);
 		result.close();
-
+// to print the contents of result.txt file to console
+//reading the input file from /home/output directory
 		File directory1 = new File("/home/output");
 		File allnewFiles[]=directory1.listFiles();
 		for(File file: allnewFiles)
@@ -105,6 +109,7 @@ public class WordCount {
 			Scanner scanner=new Scanner(file);
 			while(scanner.hasNext())
 			{
+				//printing the contents to console
 				System.out.println(scanner.nextLine());
 			}
 		scanner.close();
