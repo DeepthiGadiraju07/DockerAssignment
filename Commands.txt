@@ -1,0 +1,11 @@
+1. checking the list of current images
+docker image ls
+
+2. to remove any image
+docker rmi -f gadiraju:latest
+
+3. loading the alpine tar image
+>docker load -i gadiravi-latest.tar
+
+4. running the container
+docker run -v C:/data:/home/data gadiraju:latest
